@@ -1,0 +1,12 @@
+<div *ngIf="episodes.length > 0; else loading">
+    <div *ngFor="let episode of episodes" class="card">
+      <h3>{{ episode.name }}</h3>
+      <p>Air date: {{ episode.air_date }}</p>
+      <p>Episode: {{ episode.episode }}</p>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading episodes...</p>
+  </ng-template>
+  
