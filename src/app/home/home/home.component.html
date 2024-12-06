@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    <h1>Episodios</h1>
+    <div *ngFor="let episode of episodes" class="card mb-3">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+                <h5>{{ episode.name }}</h5>
+                <p>{{ episode.episode }} - {{ episode.air_date }}</p>
+            </div>
+            <button class="btn btn-primary" (click)="openModal(episode.characters)">
+                Ver personajes
+            </button>
+        </div>
+    </div>
+</div>
