@@ -1,28 +1,26 @@
-<div class="container mt-4">
-    <h1>Episodios</h1>
-    <table class="table">
+<div>
+    <table>
+        <!-- Encabezados de la tabla -->
         <thead>
             <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Fecha de emisión</th>
-                <th>Episodio</th>
-                <th>Acciones</th>
+                <th>Name</th>
+                <th>Fecha en que estuvo al aire</th>
+                <th>Episode</th>
+                <th>Ver Personajes</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let episode of episodes; let i = index">
-                <td>{{ i + 1 }}</td>
+            <!-- Filas dinámicas con los datos -->
+            <tr *ngFor="let episode of episodes">
                 <td>{{ episode.name }}</td>
                 <td>{{ episode.air_date }}</td>
                 <td>{{ episode.episode }}</td>
                 <td>
-                    <button class="btn btn-primary" (click)="openModal(episode.characters)">
-                        Personajes
+                    <button (click)="listCharacters(episode.characters)">
+                        Ver Personajes
                     </button>
                 </td>
             </tr>
         </tbody>
     </table>
-
 </div>
