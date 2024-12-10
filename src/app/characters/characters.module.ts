@@ -14,6 +14,10 @@ import { ListCardsComponent } from './list-cards/list-cards.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    CardsComponent,
+    ListCardsComponent
   ]
 })
 export class CharactersModule { }
