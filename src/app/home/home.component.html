@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="container mt-4">
+    <h1>Episodios</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Fecha de emisión</th>
+                <th>Episodio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let episode of episodes; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ episode.name }}</td>
+                <td>{{ episode.air_date }}</td>
+                <td>{{ episode.episode }}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="openModal(episode.characters)">
+                        Personajes
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

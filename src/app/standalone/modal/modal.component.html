@@ -1,0 +1,15 @@
+<div class="modal-backdrop">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5>Personajes</h5>
+            <button class="btn-close" (click)="onClose()">X</button>
+        </div>
+        <div class="modal-body">
+            <div *ngFor="let character of characters" class="character-card">
+                <img [src]="character.image" alt="{{ character.name }}" />
+                <h6>{{ character.name }}</h6>
+                <p>{{ character.species }} - {{ character.status }}</p>
+            </div>
+        </div>
+    </div>
+</div>
