@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RickMortyService } from '../services/rickmorty.service';
-import { ModalComponent } from '../standalone/modal/modal.component';
-
-
+import { CharactersModule } from '../characters/characters.module';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    ModalComponent
+    CharactersModule
   ],
-  providers: [
-    RickMortyService,
-  ]
 })
 export class HomeModule  {
 

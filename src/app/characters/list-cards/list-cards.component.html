@@ -1,0 +1,10 @@
+<div class="content">
+    <app-cards [id]="2" />
+    <app-cards [id]="3" />
+</div>
+<div class="content">
+    <div *ngFor="let id of characterIds">
+
+        <p>Character ID: {{ id }}</p>
+    </div>
+</div>

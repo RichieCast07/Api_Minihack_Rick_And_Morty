@@ -1,0 +1,9 @@
+<div class="modal">
+    <div class="modal-content">
+        <h1>Origen: {{ origin.name }}</h1>
+        <p>Tipo: {{ origin.type }}</p>
+        <p>Dimención: {{ origin.dimension }}</p>
+        <button (click)="onClose()">Cerrar</button>
+        <button (click)="onAddFavorites(origin.id)">Añadir a favoritos</button>
+    </div>
+</div>

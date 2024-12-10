@@ -1,35 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { RickMortyService } from '../services/rickmorty.service';
-import { Episode } from '../interfaces/episode.interface';
-import { Character } from '../interfaces/character.interface';
-import { ModalComponent } from "../standalone/modal/modal.component";
+import { Router } from '@angular/router';
+import { REpisodesService } from '../services/episodes.service';
+import { REpisode } from '../interfaces/Repisode.interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  episodes: Episode[] = [];
-  characters = [];
-  showModal = false;
+  episodes: REpisode[] = [];
 
-  constructor(private rickMortyService: RickMortyService) { }
+  constructor(private RepisodesService: REpisodesService, private router: Router) { }
 
   ngOnInit(): void {
-    this.rickMortyService.getEpisodes().subscribe((data) => {
+    this.RepisodesService.getEpisode().subscribe((data) => {
       this.episodes = data.results;
     });
   }
 
-  openModal(characterUrls: string[]): void {
-    this.rickMortyService.getCharactersByUrls(characterUrls).subscribe((data) => {
-      this.characters = [];
-      this.showModal = true;
+  Characters(characterUrls: string[]): void {
+    const characterIds = characterUrls.map(url => {
+      const urlParts = url.split('/');
+      return urlParts[urlParts.length - 1];
     });
-  }
-
-  closeModal(): void {
-    this.showModal = false;
-    this.characters = [];
   }
 }

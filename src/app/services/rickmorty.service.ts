@@ -1,24 +1,17 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable, forkJoin } from "rxjs";
-import { Episode } from "../interfaces/episode.interface";
-import { Character } from "../interfaces/character.interface";
-
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { rickmorty } from '../interfaces/rickmorty.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class RickMortyService {
-    private apiUrl = 'https://rickandmortyapi.com/api';
+    private URL_BASE = 'https://rickandmortyapi.com/api/location';
 
-    constructor(private http: HttpClient) { }
+    constructor(private _http: HttpClient) { }
 
-    getEpisodes(): Observable<{ results: Episode[] }> {
-        return this.http.get<{ results: Episode[] }>(`${this.apiUrl}/episode`);
-    }
-
-    getCharactersByUrls(urls: string[]): Observable<Character[]> {
-        const requests = urls.map((url) => this.http.get<Character>(url));
-        return forkJoin(requests);
+    getSingleLocation(id: number): Observable<rickmorty> {
+        return this._http.get<rickmorty>(`${this.URL_BASE}/${id}`);
     }
 }
